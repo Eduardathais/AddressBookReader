@@ -15,15 +15,31 @@ public class Main {
             String line = scan.nextLine();
             String[] parts = line.split(",");
             String name = parts[0];
-            String gender = parts[1];
+            String gender = parts[1].trim();
             LocalDate birthDate = LocalDate.parse(parts[2].trim(), format);
             person.add(new Person(name, gender, birthDate));
         }
-
         scan.close();
 
         for (Person p : person) {
             System.out.println(p);
         }
+
+        int total = getMalesCount(person);
+        System.out.println("There are " + total + " males in the address book.");
     }
+
+    // 1. How many males are in the address book?
+    public static int getMalesCount(ArrayList<Person> person) {
+        int count = 0;
+        for (Person p : person) {
+            if (p.getGender().equals("Male")) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    // 2. Who is the oldest person in the address book?
+    // 3. How many days older is Bill than Paul?
 }
