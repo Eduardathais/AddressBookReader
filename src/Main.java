@@ -27,6 +27,9 @@ public class Main {
 
         int total = getMalesCount(person);
         System.out.println("There are " + total + " males in the address book.");
+        Person oldest = getOldestPerson(person);
+        System.out.println("The oldest person is: " + oldest.getName());
+
     }
 
     // 1. How many males are in the address book?
@@ -41,5 +44,14 @@ public class Main {
     }
 
     // 2. Who is the oldest person in the address book?
+    public static Person getOldestPerson(ArrayList<Person> person) {
+        Person oldest = person.get(0);
+        for (Person p : person) {
+            if (p.getBirthDate().isBefore(oldest.getBirthDate())) {
+                oldest = p;
+            }
+        }
+        return oldest;
+    }
     // 3. How many days older is Bill than Paul?
 }
