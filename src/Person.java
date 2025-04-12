@@ -10,12 +10,7 @@ public class Person {
         this.gender = gender;
         this.birthDate = birthDate;
     }
-
-    @Override
-    public String toString() {
-        return "Name: " + name + ", Gender: " + gender + ", Birth Date: " + birthDate;
-    }
-
+    
     public String getName() {
         return name;
     }
@@ -26,5 +21,10 @@ public class Person {
 
     public LocalDate getBirthDate() {
         return birthDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Name: " + name + ", Gender: " + gender + ", Birth Date: " + birthDate;
     }
 }
