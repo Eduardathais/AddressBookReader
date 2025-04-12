@@ -1,6 +1,7 @@
 import java.io.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -29,7 +30,8 @@ public class Main {
         System.out.println("There are " + total + " males in the address book.");
         Person oldest = getOldestPerson(person);
         System.out.println("The oldest person is: " + oldest.getName());
-
+        long diff = getDaysOlder(person.get(0), person.get(1));
+        System.out.println("Bill is " + diff + " days older than Paul ");
     }
 
     // 1. How many males are in the address book?
@@ -53,5 +55,11 @@ public class Main {
         }
         return oldest;
     }
+
     // 3. How many days older is Bill than Paul?
+    public static long getDaysOlder(Person bill, Person paul) {
+        LocalDate  date1 = bill.getBirthDate();
+        LocalDate  date2 = paul.getBirthDate();
+        return Math.abs(ChronoUnit.DAYS.between(date1, date2));
+    }
 }
